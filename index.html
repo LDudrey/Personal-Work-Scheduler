@@ -25,8 +25,30 @@
   </header>
   <div class="container">
     <!-- Timeblocks go here -->
-    <div id="9am"></div>
-    <div id="10am"></div>
+    <!-- https://www.freecodecamp.org/news/use-svg-images-in-css-html/ -->
+    <!-- https://stackoverflow.com/questions/14404157/multiline-input-form-field-using-bootstrap -->
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <div class="hour">9 am</div>
+      </div>
+      <textarea type="text" class="form-control" aria-label="Text input for personal scheduling"></textarea>
+      <div class="input-group-append">
+        <button class="saveBtn" type="button" id="button-addon2">
+          <img src="./assets/images/save-fill.svg" alt="save icon" />
+        </button>
+      </div>
+    </div>
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <div class="hour">10 am</div>
+      </div>
+      <textarea type="text" class="form-control" aria-label="Text input for personal scheduling"></textarea>
+      <div class="input-group-append">
+        <button class="saveBtn" type="button" id="button-addon2">
+          <img src="./assets/images/save-fill.svg" alt="save icon" />
+        </button>
+      </div>
+    </div>
     <div id="11am"></div>
     <div id="12pm"></div>
     <div id="1pm"></div>
@@ -39,7 +61,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
 </body>
