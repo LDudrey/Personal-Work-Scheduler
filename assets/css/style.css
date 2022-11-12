@@ -4,6 +4,16 @@ body {
   line-height: 1;
 }
 
+.lead {
+  color:#000000;
+  font-size: 25px;
+}
+
+#msg {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
 textarea {
   background: transparent;
   border: none;
@@ -37,6 +47,7 @@ textarea {
 }
 
 .hour {
+  padding: 20px;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -57,7 +68,8 @@ textarea {
   color: white;
 }
 
-.saveBtn {
+#saveBtn {
+  padding: 20px;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -65,7 +77,18 @@ textarea {
   color: white;
 }
 
-.saveBtn i:hover {
+#saveBtn i:hover {
+  pointer-events: none;
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+#clear {
+  display: block;
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #fa0303;
+  color: white;
 }
