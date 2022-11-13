@@ -43,7 +43,6 @@ function init() {
         return;
     } else {
         renderSavedSchedule();
-        checkHour();
     }
 };
 
@@ -122,3 +121,4 @@ $("#clear").click(function () {
 });
 
 init();
+checkHour();
