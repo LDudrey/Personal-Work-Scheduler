@@ -44,6 +44,7 @@ function init() {
     } else {
         renderSavedSchedule();
     }
+    checkHour();
 };
 
 // Saves users planner input into local storage
