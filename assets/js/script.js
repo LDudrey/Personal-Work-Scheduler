@@ -1,10 +1,7 @@
 var showDay;
-var currentHour = dayjs().get('hour');
-var clearBtn = document.getElementById("clear");
-var textInput = document.querySelector("textarea");
-var showDay = document.querySelector("#currentDay");
-var hourArray = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+var currentHour;
 var savedInput;
+var clearBtn = document.getElementById("clear");
 var hour09 = document.getElementById("9");
 var hour10 = document.getElementById("10");
 var hour11 = document.getElementById("11");
@@ -15,10 +12,15 @@ var hour15 = document.getElementById("15");
 var hour16 = document.getElementById("16");
 var hour17 = document.getElementById("17");
 
+
+// https://api.jquery.com/
 // Today's date
 // A variable does not have to have a set value when it is declared
 showDay = dayjs().format('dddd, MMMM D, YYYY');
 $('#currentDay').text(showDay);
+
+// Current hour
+currentHour = dayjs().format('HH').toString();
 
 // Pulls saved schedule into corrisponding textareas
 function renderSavedSchedule() {
@@ -40,7 +42,8 @@ function init() {
     if (savedInput == null) {
         return;
     } else {
-    renderSavedSchedule();
+        renderSavedSchedule();
+        checkHour();
     }
 };
 
@@ -65,21 +68,36 @@ $(".saveBtn").on("click", function (event) {
 
 });
 
-// https://api.jquery.com/
-//variable array for hours?
-//for loop to check hour for time of day for color?
+
+
 // https://api.jquery.com/addclass/
-// if else statement to add class for past present or future
-//https://day.js.org/docs/en/get-set/get
-// dayjs().get('hour')
+// https://day.js.org/docs/en/get-set/get
+// https://www.codingem.com/change-html-class-with-javascript/
+function checkHour() {
+    var hourTextArea = document.querySelectorAll(".description");
+   
+    for (i = 0; i < hourTextArea.length; i++) {
+        // console.log(hourTextArea[i].id);
+        if (hourTextArea[i].id === currentHour) {
+            hourTextArea[i].classList.add("present");
+            hourTextArea[i].classList.remove("past");
+            hourTextArea[i].classList.remove("future");
+            // .addClass(".present")
+        } else if (hourTextArea[i].id > currentHour) {
+            hourTextArea[i].classList.add("future");
+            hourTextArea[i].classList.remove("past");
+            hourTextArea[i].classList.remove("present");
+            // .addClass(".future")
+        } else if (hourTextArea[i].id < currentHour) {
+            hourTextArea[i].classList.add("past");
+            hourTextArea[i].classList.remove("present");
+            hourTextArea[i].classList.remove("future");
+            // .addClass(".past")
+           
+        }
+    }
+};
 // console.log(currentHour);
-// if (hourArray = hour) {
-// addClass("present")
-// } else if { (hourArray > hour)
-//     addClass("future")
-// } else { (hourArray < hour)
-//     addClass("past")
-// }
 
 // for (i = 0; i < hourArray.length; i++) {
 //     // let currentHour = "10"
