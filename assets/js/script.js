@@ -4,6 +4,7 @@ var clearBtn = document.getElementById("clear");
 var textInput = document.querySelector("textarea");
 var showDay = document.querySelector("#currentDay");
 var hourArray = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+var savedInput;
 var hour09 = document.getElementById("9");
 var hour10 = document.getElementById("10");
 var hour11 = document.getElementById("11");
@@ -18,6 +19,30 @@ var hour17 = document.getElementById("17");
 // A variable does not have to have a set value when it is declared
 showDay = dayjs().format('dddd, MMMM D, YYYY');
 $('#currentDay').text(showDay);
+
+// Pulls saved schedule into corrisponding textareas
+function renderSavedSchedule() {
+    savedInput = JSON.parse(localStorage.getItem("dayPlannerInput"));
+    hour09.textContent = savedInput.hour09;
+    hour10.textContent = savedInput.hour10;
+    hour11.textContent = savedInput.hour11;
+    hour12.textContent = savedInput.hour12;
+    hour13.textContent = savedInput.hour13;
+    hour14.textContent = savedInput.hour14;
+    hour15.textContent = savedInput.hour15;
+    hour16.textContent = savedInput.hour16;
+    hour17.textContent = savedInput.hour17;
+};
+
+// Function is called below and will run when page loads
+function init() {
+    savedInput = JSON.parse(localStorage.getItem("dayPlannerInput"));
+    if (savedInput == null) {
+        return;
+    } else {
+    renderSavedSchedule();
+    }
+};
 
 // Saves users planner input into local storage
 $(".saveBtn").on("click", function (event) {
@@ -37,14 +62,8 @@ $(".saveBtn").on("click", function (event) {
 
     localStorage.setItem("dayPlannerInput", JSON.stringify(dayPlannerInput));
     $("#msg").html("<p>Success. Hourly input has been saved.</p>");
-    
+
 });
-
-function renderSavedSchedule() {
-    // JSON.parse converts a string back to an object
-    var JSON.parse(localStorage.getItem("dayPlannerInput"));
-}
-
 
 // https://api.jquery.com/
 //variable array for hours?
@@ -84,6 +103,4 @@ $("#clear").click(function () {
     localStorage.clear();
 });
 
-function init() {
-    renderSavedSchedule();
-};
+init();
