@@ -20,7 +20,6 @@ textarea {
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
 }
 
 .jumbotron {
@@ -43,11 +42,11 @@ textarea {
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;
+  border-top: 1px solid rgb(0, 0, 0);
 }
 
-.hour {
-  padding: 20px;
+.hour { 
+  font-size: 1.5rem;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -68,8 +67,7 @@ textarea {
   color: white;
 }
 
-#saveBtn {
-  padding: 20px;
+.saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -77,7 +75,7 @@ textarea {
   color: white;
 }
 
-#saveBtn i:hover {
+.saveBtn i:hover {
   pointer-events: none;
   font-size: 20px;
   transition: all 0.3s ease-in-out;

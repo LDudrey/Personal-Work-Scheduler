@@ -1,28 +1,50 @@
 var showDay;
 var currentHour = dayjs().get('hour');
-var saveBtn = document.getElementById("saveBtn");
 var clearBtn = document.getElementById("clear");
-var saveMsg = document.querySelector("#msg");
 var textInput = document.querySelector("textarea");
 var showDay = document.querySelector("#currentDay");
 var hourArray = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+var hour09 = document.getElementById("9");
+var hour10 = document.getElementById("10");
+var hour11 = document.getElementById("11");
+var hour12 = document.getElementById("12");
+var hour13 = document.getElementById("13");
+var hour14 = document.getElementById("14");
+var hour15 = document.getElementById("15");
+var hour16 = document.getElementById("16");
+var hour17 = document.getElementById("17");
 
 // Today's date
-// A variable does not have to have a set value when it is declared ~ advice from veteran programmer
+// A variable does not have to have a set value when it is declared
 showDay = dayjs().format('dddd, MMMM D, YYYY');
 $('#currentDay').text(showDay);
 
-// Not functioning
-function renderSavedSchedule() {
-    var textAreas = document.querySelectorAll("#9, #10, #11, #12, #13, #14, #15, #16, #17");
-    for (i = 0; i < textAreas.length; i++) {
-        localStorage.getItem(textAreas[i].value);
-console.log(textAreas[i].value);
-    }
-    // localStorage.getItem("9am");
+// Saves users planner input into local storage
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
 
-    // textInput.textContent = userInput;
-};
+    var dayPlannerInput = {
+        hour09: hour09.value.trim(),
+        hour10: hour10.value.trim(),
+        hour11: hour11.value.trim(),
+        hour12: hour12.value.trim(),
+        hour13: hour13.value.trim(),
+        hour14: hour14.value.trim(),
+        hour15: hour15.value.trim(),
+        hour16: hour16.value.trim(),
+        hour17: hour17.value.trim(),
+    };
+
+    localStorage.setItem("dayPlannerInput", JSON.stringify(dayPlannerInput));
+    $("#msg").html("<p>Success. Hourly input has been saved.</p>");
+    
+});
+
+function renderSavedSchedule() {
+    // JSON.parse converts a string back to an object
+    var JSON.parse(localStorage.getItem("dayPlannerInput"));
+}
+
 
 // https://api.jquery.com/
 //variable array for hours?
@@ -54,19 +76,6 @@ console.log(textAreas[i].value);
 // timer to clear message after 30 seconds https://getbootstrap.com/docs/4.3/utilities/visibility/
 // https://css-plus.com/2011/07/jquery-if-else-statements
 // https://api.jquery.com/val/
-
-// Tutor assistance with onclick funtion for buttons
-function btnClick(event) {
-    event.preventDefault();
-    let targetElement = event.target.parentNode.previousElementSibling;
-    var key = targetElement.name;
-    var value = targetElement.value;
-    localStorage.setItem(key, value);
-};
-
-function displayMessage() {
-    saveMsg.textContent = setAttribute();
-};
 
 // Clears Daily Schedule
 // https://developer.mozilla.org/en-US/docs/Web/API/Location/reload

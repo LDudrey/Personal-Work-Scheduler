@@ -4,6 +4,15 @@
 // $('#currentDay').text(showDay);
 // }
 
+// Tutor assistance with onclick funtion for buttons
+// function btnClick(event) {
+//     event.preventDefault();
+//     let targetElement = event.target.parentNode.previousElementSibling;
+//     var key = targetElement.name;
+//     var value = targetElement.value;
+//     localStorage.setItem(key, value);
+// };
+
 
 // Tutor assistance with onclick funtion for buttons
 // function btnClick(event) {
@@ -25,11 +34,6 @@
 // $("#saveBtn").on("click", function () {
 //     $("textarea").each(function (index) {
 //     var userInput = $("textarea").val();
-//     if (this === "") {
-//         $("#msg").html("<p>Error. Hourly input cannot be blank</p>");
-//     } else {
-//         $("#msg").html("<p>Success. Hourly input has been saved</p>");
-//     }
 //     localStorage.setItem("9am", userInput)
 //     localStorage.setItem("10am", userInput)
 //     })
@@ -37,11 +41,6 @@
 
 // $("#saveBtn").click(function () {
 //     var userInput = $("#plannerInput").val() || [];
-//     if (userInput === "") {
-//         $("#msg").html("<p>Error. Hourly input cannot be blank</p>");
-//     } else {
-//         $("#msg").html("<p>Success. Hourly input has been saved</p>");
-//     }
 //     localStorage.setItem("Day", userInput)
 //     localStorage.setItem("10am", userInput)
 // });
@@ -49,13 +48,8 @@
 // saveBtn.addEventListener("click", function (event) {
 //    event.preventDefault();
 //     var userInput = document.querySelector("#plannerInput").value;
-//     if (userInput === "") {
-//         displayMessage("Error", "Hourly input cannot be blank.");
-//     } else {
-//         displayMessage("Success", "Hourly input has been saved!");
-
-//         localStorage.setItem("9am", userInput)
-//         //localStorage.setItem("10am", userInput)
+//     localStorage.setItem("9am", userInput)
+//    //localStorage.setItem("10am", userInput)
 //     }
 // });
 
@@ -66,3 +60,15 @@
 //     localStorage.clear();
 
 // });
+
+// Not functioning
+// function renderSavedSchedule() {
+//     var textAreas = document.querySelectorAll("#9, #10, #11, #12, #13, #14, #15, #16, #17");
+//     for (i = 0; i < textAreas.length; i++) {
+//         localStorage.getItem(textAreas[i].value);
+// console.log(textAreas[i].value);
+//     }
+// localStorage.getItem("9am");
+
+// textInput.textContent = userInput;
+// };
