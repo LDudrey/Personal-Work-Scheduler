@@ -1,8 +1,7 @@
 var showDay;
 var currentHour;
 var savedInput;
-var clearBtn = document.getElementById("clear");
-var hour09 = document.getElementById("9");
+var hour09 = document.getElementById("09");
 var hour10 = document.getElementById("10");
 var hour11 = document.getElementById("11");
 var hour12 = document.getElementById("12");
@@ -12,8 +11,6 @@ var hour15 = document.getElementById("15");
 var hour16 = document.getElementById("16");
 var hour17 = document.getElementById("17");
 
-
-// https://api.jquery.com/
 // Today's date
 // A variable does not have to have a set value when it is declared
 showDay = dayjs().format('dddd, MMMM D, YYYY');
@@ -22,9 +19,10 @@ $('#currentDay').text(showDay);
 // Current hour
 currentHour = dayjs().format('HH').toString();
 
-// Pulls saved schedule into corrisponding textareas
+// Pulls saved schedule into corresponding textareas
 function renderSavedSchedule() {
     savedInput = JSON.parse(localStorage.getItem("dayPlannerInput"));
+
     hour09.textContent = savedInput.hour09;
     hour10.textContent = savedInput.hour10;
     hour11.textContent = savedInput.hour11;
@@ -48,6 +46,7 @@ function init() {
 };
 
 // Saves users planner input into local storage
+// timer to clear message after 30 seconds? https://getbootstrap.com/docs/4.3/utilities/visibility/
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
 
@@ -68,51 +67,25 @@ $(".saveBtn").on("click", function (event) {
 
 });
 
-
-
+// colors don't update without reloading the page
 // https://api.jquery.com/addclass/
-// https://day.js.org/docs/en/get-set/get
 // https://www.codingem.com/change-html-class-with-javascript/
+// https://css-plus.com/2011/07/jquery-if-else-statements
 function checkHour() {
     var hourTextArea = document.querySelectorAll(".description");
-   
     for (i = 0; i < hourTextArea.length; i++) {
-        // console.log(hourTextArea[i].id);
         if (hourTextArea[i].id === currentHour) {
             hourTextArea[i].classList.add("present");
-            // hourTextArea[i].classList.remove("past");
-            // hourTextArea[i].classList.remove("future");
-            // .addClass(".present")
+            hourTextArea[i].classList.remove("past");
         } else if (hourTextArea[i].id > currentHour) {
             hourTextArea[i].classList.add("future");
-            // hourTextArea[i].classList.remove("past");
-            // hourTextArea[i].classList.remove("present");
-            // .addClass(".future")
+            hourTextArea[i].classList.remove("past");
         } else if (hourTextArea[i].id < currentHour) {
             hourTextArea[i].classList.add("past");
-            // hourTextArea[i].classList.remove("present");
-            // hourTextArea[i].classList.remove("future");
-            // .addClass(".past")
-           
+            hourTextArea[i].classList.remove("present");          
         }
     }
 };
-// console.log(currentHour);
-
-// for (i = 0; i < hourArray.length; i++) {
-//     // let currentHour = "10"
-//     if (hourArray === currentHour[i]) {
-//         document.getElementById(textInput).style.backgroundColor = "grey"
-//     } else if (hourArray[i] < currentHour) {
-//         document.getElementById(textInput).style.backgroundColor = "green"
-//     } else {
-//         document.getElementById(textInput).style.backgroundColor = "red"
-//     }
-// };
-
-// timer to clear message after 30 seconds https://getbootstrap.com/docs/4.3/utilities/visibility/
-// https://css-plus.com/2011/07/jquery-if-else-statements
-// https://api.jquery.com/val/
 
 // Clears Daily Schedule
 // https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
