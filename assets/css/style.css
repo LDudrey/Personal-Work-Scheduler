@@ -1,5 +1,7 @@
-* {
-  box-sizing: border-box;
+:root {
+  --darktext: black;
+  --darkborder: black;
+  --light: #fff;
 }
 
 body {
@@ -9,7 +11,7 @@ body {
 }
 
 .lead {
-  color:#000000;
+  color: var(--darktext);
   font-size: 25px;
 }
 
@@ -22,17 +24,17 @@ textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
-  border-left: 1px solid black;
+  color: var(--darktext);
+  border-left: 1px solid var(--darkborder);
   padding: 10px;
 }
 
 .jumbotron {
   text-align: center;
   background-color: transparent;
-  color: black;
+  color:  var(--darktext);
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid var(--darkborder);
 }
 
 .description {
@@ -47,36 +49,36 @@ textarea {
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;
+  border-top: 1px solid  var(--light);
 }
 
 .hour { 
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+  background-color:  var(--light);
+  color:  var(--darktext);
+  border-top: 1px dashed  var(--darkborder);
 }
 
 .past {
   background-color: #d3d3d3;
-  color: black;
+  color: var(--darktext);
 }
 
 .present {
   background-color: #ff6961;
-  color: black;
+  color:  var(--darktext);
 }
 
 .future {
   background-color: #77dd77;
-  color: black;
+  color:  var(--darktext);
 }
 
 .saveBtn {
-  border-left: 1px solid black;
+  border-left: 1px solid  var(--darkborder);
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
+  background-color: #0693d5;
+  color:  var(--light);
 }
 
 .saveBtn i:hover {
@@ -89,8 +91,8 @@ textarea {
   display: block;
   padding: 10px;
   margin: 20px;
-  border: 1px solid black;
+  border: 1px solid  var(--darkborder);
   border-radius: 15px;
   background-color: #fa0303;
-  color: white;
+  color:  var(--light);
 }

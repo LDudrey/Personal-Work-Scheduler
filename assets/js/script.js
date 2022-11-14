@@ -42,7 +42,7 @@ function init() {
     } else {
         renderSavedSchedule();
     }
-    checkHour();
+    setInterval(checkHour, 300000);
 };
 
 // Saves users planner input into local storage
@@ -64,8 +64,8 @@ $(".saveBtn").on("click", function (event) {
 
     localStorage.setItem("dayPlannerInput", JSON.stringify(dayPlannerInput));
     $("#msg").html("<p>Success. Hourly input has been saved.</p>");
-
 });
+
 
 // colors don't update without reloading the page
 // https://api.jquery.com/addclass/
@@ -84,6 +84,7 @@ function checkHour() {
             hourTextArea[i].classList.add("past");
             hourTextArea[i].classList.remove("present");          
         }
+    //   setInterval(checkHour, 300000); 
     }
 };
 
