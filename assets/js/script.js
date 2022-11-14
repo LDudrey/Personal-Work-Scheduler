@@ -16,13 +16,20 @@ var hour17 = document.getElementById("17");
 showDay = dayjs().format('dddd, MMMM D, YYYY');
 $('#currentDay').text(showDay);
 
-// Current hour
-currentHour = dayjs().format('HH').toString();
+// // Current hour
+// currentHour = dayjs().format('HH').toString();
 
 // Pulls saved schedule into corresponding textareas
 function renderSavedSchedule() {
     savedInput = JSON.parse(localStorage.getItem("dayPlannerInput"));
+//     var textareas = document.querySelectorAll(".description");
+//     console.log(textareas)
+//     console.log(savedInput)
+//     for (i = 0; i < savedInput.length; i++) {
+//         textareas.textContent = savedInput
 
+//     }
+// };
     hour09.textContent = savedInput.hour09;
     hour10.textContent = savedInput.hour10;
     hour11.textContent = savedInput.hour11;
@@ -42,7 +49,7 @@ function init() {
     } else {
         renderSavedSchedule();
     }
-    setInterval(checkHour, 300000);
+    setInterval(checkHour, 100000);
 };
 
 // Saves users planner input into local storage
@@ -68,10 +75,12 @@ $(".saveBtn").on("click", function (event) {
 
 
 // colors don't update without reloading the page
-// https://api.jquery.com/addclass/
 // https://www.codingem.com/change-html-class-with-javascript/
-// https://css-plus.com/2011/07/jquery-if-else-statements
 function checkHour() {
+    // Current Hour
+    var currentHour = dayjs().format('HH').toString();
+    // setInterval(currentHour, 100000);
+    console.log(currentHour)
     var hourTextArea = document.querySelectorAll(".description");
     for (i = 0; i < hourTextArea.length; i++) {
         if (hourTextArea[i].id === currentHour) {
@@ -82,9 +91,8 @@ function checkHour() {
             hourTextArea[i].classList.remove("past");
         } else if (hourTextArea[i].id < currentHour) {
             hourTextArea[i].classList.add("past");
-            hourTextArea[i].classList.remove("present");          
+            hourTextArea[i].classList.remove("present");
         }
-    //   setInterval(checkHour, 300000); 
     }
 };
 
