@@ -80,18 +80,18 @@ function checkHour() {
         // console.log(hourTextArea[i].id);
         if (hourTextArea[i].id === currentHour) {
             hourTextArea[i].classList.add("present");
-            hourTextArea[i].classList.remove("past");
-            hourTextArea[i].classList.remove("future");
+            // hourTextArea[i].classList.remove("past");
+            // hourTextArea[i].classList.remove("future");
             // .addClass(".present")
         } else if (hourTextArea[i].id > currentHour) {
             hourTextArea[i].classList.add("future");
-            hourTextArea[i].classList.remove("past");
-            hourTextArea[i].classList.remove("present");
+            // hourTextArea[i].classList.remove("past");
+            // hourTextArea[i].classList.remove("present");
             // .addClass(".future")
         } else if (hourTextArea[i].id < currentHour) {
             hourTextArea[i].classList.add("past");
-            hourTextArea[i].classList.remove("present");
-            hourTextArea[i].classList.remove("future");
+            // hourTextArea[i].classList.remove("present");
+            // hourTextArea[i].classList.remove("future");
             // .addClass(".past")
            
         }
