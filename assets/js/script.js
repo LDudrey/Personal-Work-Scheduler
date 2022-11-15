@@ -16,20 +16,13 @@ var hour17 = document.getElementById("17");
 showDay = dayjs().format('dddd, MMMM D, YYYY');
 $('#currentDay').text(showDay);
 
-// // Current hour
-// currentHour = dayjs().format('HH').toString();
+// Current hour
+currentHour = dayjs().format('HH').toString();
 
 // Pulls saved schedule into corresponding textareas
 function renderSavedSchedule() {
     savedInput = JSON.parse(localStorage.getItem("dayPlannerInput"));
-//     var textareas = document.querySelectorAll(".description");
-//     console.log(textareas)
-//     console.log(savedInput)
-//     for (i = 0; i < savedInput.length; i++) {
-//         textareas.textContent = savedInput
 
-//     }
-// };
     hour09.textContent = savedInput.hour09;
     hour10.textContent = savedInput.hour10;
     hour11.textContent = savedInput.hour11;
@@ -49,11 +42,10 @@ function init() {
     } else {
         renderSavedSchedule();
     }
-    setInterval(checkHour, 100000);
+    setInterval(checkHour, 60000);
 };
 
 // Saves users planner input into local storage
-// timer to clear message after 30 seconds? https://getbootstrap.com/docs/4.3/utilities/visibility/
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
 
@@ -77,10 +69,6 @@ $(".saveBtn").on("click", function (event) {
 // colors don't update without reloading the page
 // https://www.codingem.com/change-html-class-with-javascript/
 function checkHour() {
-    // Current Hour
-    var currentHour = dayjs().format('HH').toString();
-    // setInterval(currentHour, 100000);
-    console.log(currentHour)
     var hourTextArea = document.querySelectorAll(".description");
     for (i = 0; i < hourTextArea.length; i++) {
         if (hourTextArea[i].id === currentHour) {
